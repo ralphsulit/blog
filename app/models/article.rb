@@ -1,9 +1,5 @@
 class Article < ApplicationRecord
-  # validates :title, :author, :content, presence: true
-  def index 
-    articles = Article.all 
-  end
+  validates :title, :author, :content, presence: true
 
-  def two
-  end
+  has_many :comments
 end

@@ -1,0 +1,35 @@
+<h1> <%= @article.title %> </h1>
+
+<p> <%= @article.content %> </p>
+
+<hr>
+
+<table>
+  <thead>
+    <tr>
+      <th> Comment </th>
+      <th> Actions </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @comments.each do |comment| %>
+      <tr>
+        <td><%= comment.content %></td>
+        <td> 
+        <%= link_to edit_article_comment_path(@article.id, comment.id) do %>
+          edit
+        <% end %>
+
+        <%= link_to article_comment_path(@article.id, comment.id), method: :delete, data: { confirm: "Really?"} do %>
+          delete
+        <% end %>
+
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<%= render 'comments/form' %>
