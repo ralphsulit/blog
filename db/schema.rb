@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2021_11_25_115109) do
     t.integer "article_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["article_id"], name: "index_comments_on_article_id"
   end
 
 end
